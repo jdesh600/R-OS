@@ -1,40 +1,21 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-#
-# See https://github.com/r-lib/actions/tree/master/examples#readme for
-# additional example workflows available for the R community.
+Version: 1
+# top level packages
 
-name: R
+Tarballs:
+  - "./tarballs/ellipsis_0.3.2.tar.gz" # depends on rlang
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+Packages:
+  - crayon
 
-permissions:
-  contents: read
+# any repositories, order matters
+Repos:
+  - LOCALREPO: "./localrepo_tarball_install"
 
-jobs:
-  build:
-    runs-on: macos-latest
-    strategy:
-      matrix:
-        r-version: ['3.6.3', '4.1.1']
+Cache: test-cache
 
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up R ${{ matrix.r-version }}
-        uses: r-lib/actions/setup-r@f57f1301a053485946083d7a45022b278929a78a
-        with:
-          r-version: ${{ matrix.r-version }}
-      - name: Install dependencies
-        run: |
-          install.packages(c("remotes", "rcmdcheck"))
-          remotes::install_deps(dependencies = TRUE)
-        shell: Rscript {0}
-      - name: Check
-        run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
-        shell: Rscript {0}
+Library: "test-library"
+
+Customizations:
+  Repos:
+    - LOCALREPO:
+        Type: source
