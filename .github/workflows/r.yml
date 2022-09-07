@@ -1,21 +1,74 @@
 Version: 1
-# top level packages
-
-Tarballs:
-  - "./tarballs/ellipsis_0.3.2.tar.gz" # depends on rlang
-
 Packages:
-  - crayon
-
-# any repositories, order matters
+- shinycssloaders
+- furrr
+- TrialSize
+- PropCIs
+- profvis
+- DiagrammeR
+- DiagrammeRsvg
+- devtools
+- padr
+- plotly
+- extrafont
+- proj4
+- ash
+- maps
+- anytime
+- assertthat
+- BH
+- bitops
+- blockrand
+- broom
+- caTools
+- covr
+- crayon
+- data.table
+- devtools
+- devutils
+- digest
+- dplyr
+- ggplot2
+- ggrepel
+- ggridges
+- gt
+- knitr
+- logrrr
+- magrittr
+- mc2d
+- miniCRAN
+- miniUI
+- mrgsolve
+- pkgpub
+- PKPDmisc
+- purrr
+- R6
+- remotes
+- rlang
+- rmarkdown
+- rrsq
+- rstudioapi
+- rvest
+- sessioninfo
+- shiny
+- shinydashboard
+- survminer
+- testthat
+- tibble
+- tidyr
+- tidyverse
+- usethis
+- whisker
+- xml2
+- yaml
+Suggests: true
 Repos:
-  - LOCALREPO: "./localrepo_tarball_install"
-
-Cache: test-cache
-
-Library: "test-library"
-
+- gh_external: https://metrumresearchgroup.github.io/rpkgs/gh_external
+- gh_dev: https://metrumresearchgroup.github.io/rpkgs/gh_dev
+- CRAN: https://cran.microsoft.com/snapshot/2019-03-15
+Library: '3.5'
+Cache: pkgcache
 Customizations:
-  Repos:
-    - LOCALREPO:
-        Type: source
+  Packages:
+  - devtools:
+      Type: source
